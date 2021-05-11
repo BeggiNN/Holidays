@@ -19,6 +19,7 @@ class Actions extends Column
      */
     const URL_PATH_EDIT = 'perspective_holiday/holiday/edit';
     const URL_PATH_DELETE = 'perspective_holiday/holiday/delete';
+    const URL_PATH_DETAILS = 'perspective_holiday/holiday/details';
 
     /**
      * @var UrlInterface
@@ -56,7 +57,7 @@ class Actions extends Column
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
                 if (isset($item['holiday_id'])) {
-                    $title = $this->getEscaper()->escapeHtmlAttr($item['name']);
+                    $name = $this->getEscaper()->escapeHtmlAttr($item['name']);
                     $item[$this->getData('name')] = [
                         'edit' => [
                             'href' => $this->urlBuilder->getUrl(
@@ -77,8 +78,8 @@ class Actions extends Column
                             ),
                             'label' => __('Delete'),
                             'confirm' => [
-                                'title' => __('Delete %1', $title),
-                                'message' => __('Are you sure you want to delete a %1 record?', $title),
+                                'title' => __('Delete %1', $name),
+                                'message' => __('Are you sure you want to delete a %1 record?', $name),
                             ],
                             'post' => true,
                             '__disableTmpl' => true,

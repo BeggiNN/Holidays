@@ -4,7 +4,7 @@
 $holiday = $block->getHoliday();
 foreach ($holiday as $item) {
     $status = $item->getStatus();
-    if ($status) {
+    if ($status != 2) {
     $today = date("Y-m-d");
     $finish = $item->getFinish();
     $start = $item->getStart();?>

@@ -13,6 +13,7 @@ class Custom implements \Magento\Framework\Option\ArrayInterface
     }
     public function toOptionArray()
     {
+        $holidays = $this->_model->create()->getCollection();
         $arr = $this->_toArray();
         $ret = [];
 
@@ -33,11 +34,9 @@ class Custom implements \Magento\Framework\Option\ArrayInterface
     private function _toArray()
     {
         $holidays = $this->_model->create()->getCollection();
-        $holidaysList = [1];
         foreach ($holidays as $items) {
-            $holidaysList[] = $items->getName();
+            $holidaysList[$items->getId()] =$items->getName();
         }
-        unset($holidaysList[0]);
         return $holidaysList;
     }
 }

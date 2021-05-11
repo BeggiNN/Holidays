@@ -85,7 +85,7 @@
                 <settings>
                     <callback>
                         <target>editSelected</target>
-                        <provider>perspective_holiday_holiday_listing.perspective_holiday_holiday_listing.perspective_holiday_columns_editor</provider>
+                        <provider>perspective_holiday_holiday_listing.perspective_holiday_holiday_listing.perspective_holiday_holiday_columns_editor</provider>
                     </callback>
                     <type>edit</type>
                     <label translate="true">Edit</label>
@@ -198,7 +198,7 @@
         </column>
         <actionsColumn name="actions" class="Perspective\Holiday\Ui\Component\Listing\Column\Actions">
             <settings>
-                <indexField>block_id</indexField>
+                <indexField>holiday_id</indexField>
             </settings>
         </actionsColumn>
     </columns>
