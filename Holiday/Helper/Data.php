@@ -12,7 +12,7 @@ class Data extends AbstractHelper
 
     /**
      * @var \Perspective\Holiday\Model\HolidayFactory
-     */
+   price  */
     protected $_model;
 
     public function __construct(
@@ -40,7 +40,13 @@ class Data extends AbstractHelper
         return $this->getConfigValue(self::XML_PATH_HOLIDAY . 'general/' . $code, $storeId);
     }
 
-    public function getById($id){
+    /**
+     * Get holidays id.
+     * @param $id
+     * @return \Perspective\Holiday\Model\Holiday
+     */
+    public function getById($id)
+    {
         return $this->_model->create()->load($id);
     }
 }

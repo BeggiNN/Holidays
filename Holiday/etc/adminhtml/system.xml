@@ -19,6 +19,10 @@
                     <label>Select Holiday</label>
                     <source_model>Perspective\Holiday\Model\Config\Source\Custom</source_model>
                 </field>
+                <field id="discount" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Discount percent</label>
+                    <comment>Enter the percentage discount</comment>
+                </field>
             </group>
         </section>
     </system>
