@@ -15,12 +15,16 @@ class Data extends AbstractHelper
    price  */
     protected $_model;
 
+    protected $_view;
+
     public function __construct(
         \Magento\Catalog\Model\CategoryFactory $categoryFactory,
         \Perspective\Holiday\Model\HolidayFactory $model,
+        \Magento\Catalog\Block\Product\View\AbstractView $view,
         Context $context
     ) {
         $this->_model = $model;
+        $this->_view = $view;
         $this->categoryFactory = $categoryFactory;
         parent::__construct($context);
     }
@@ -48,5 +52,19 @@ class Data extends AbstractHelper
     public function getById($id)
     {
         return $this->_model->create()->load($id);
+    }
+
+    /**
+     * Get Atrribute.
+     * @return int|mixed|null
+     */
+    public function getAttributes(){
+        $product = $this->_view->getProduct();
+        $attr = $product->getData('holiday');
+        if ($attr == 1) {
+            return $attr;
+        }else{
+            return 0;
+        }
     }
 }

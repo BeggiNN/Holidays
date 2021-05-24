@@ -19,16 +19,20 @@ class Holiday extends \Magento\Framework\View\Element\Template
      */
     protected $_view;
 
+    protected $productRepository;
+
     public function __construct(
         \Perspective\Holiday\Helper\Data $helper,
         \Perspective\Holiday\Model\HolidayFactory $model,
         \Magento\Backend\Block\Template\Context $context,
         \Magento\Catalog\Block\Product\View\AbstractView $view,
+        \Magento\Catalog\Model\ProductRepository $productRepository,
         array $data = []
     ) {
         $this->_view = $view;
         $this->_helper = $helper;
         $this->_model = $model;
+        $this->productRepository = $productRepository;
         parent::__construct($context, $data);
     }
 
@@ -54,6 +58,7 @@ class Holiday extends \Magento\Framework\View\Element\Template
     }
 
     /**
+     * Get price product.
      * @return float
      */
     public function getPriceProduct(){
@@ -63,6 +68,7 @@ class Holiday extends \Magento\Framework\View\Element\Template
     }
 
     /**
+     * Get Discount.
      * @return mixed
      */
     public function getPercent()
@@ -70,4 +76,11 @@ class Holiday extends \Magento\Framework\View\Element\Template
         return $this->_helper->getGeneralConfig('discount');
     }
 
+    /**
+     * Get Atrribute.
+     * @return int|mixed|null
+     */
+    public function getAttributes(){
+       return $this->_helper->getAttributes();
+    }
 }
